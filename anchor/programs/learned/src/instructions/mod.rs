@@ -1,2 +1,3 @@
-pub mod init_teacher;
-pub use init_teacher::*;
+pub mod teacher_methods;
+pub use teacher_methods::*;
+

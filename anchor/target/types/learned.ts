@@ -14,6 +14,56 @@ export type Learned = {
   },
   "instructions": [
     {
+      "name": "deleteTeacher",
+      "discriminator": [
+        233,
+        249,
+        73,
+        26,
+        237,
+        81,
+        244,
+        177
+      ],
+      "accounts": [
+        {
+          "name": "payer",
+          "writable": true,
+          "signer": true
+        },
+        {
+          "name": "teacher",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  116,
+                  101,
+                  97,
+                  99,
+                  104,
+                  101,
+                  114
+                ]
+              },
+              {
+                "kind": "account",
+                "path": "payer"
+              }
+            ]
+          }
+        }
+      ],
+      "args": [
+        {
+          "name": "name",
+          "type": "string"
+        }
+      ]
+    },
+    {
       "name": "initTeacher",
       "discriminator": [
         178,
@@ -85,6 +135,18 @@ export type Learned = {
         216,
         113
       ]
+    }
+  ],
+  "errors": [
+    {
+      "code": 6000,
+      "name": "teacherNotFound",
+      "msg": "Teacher name does not exist or you are not priveleged to do this."
+    },
+    {
+      "code": 6001,
+      "name": "accountExists",
+      "msg": "This Teacher account is already initialized."
     }
   ],
   "types": [

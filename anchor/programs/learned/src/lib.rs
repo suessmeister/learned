@@ -15,4 +15,10 @@ pub mod learned {
         instructions::init_teacher(ctx, name, quality);
         Ok(())
     }
+
+    pub fn delete_teacher(ctx: Context<DeleteTeacher>, name: String) -> Result<()>
+    {
+        instructions::delete_teacher(ctx, name);
+        Ok(())
+    }
   }
